@@ -7,15 +7,6 @@ import { GoogleOAuthGuard } from './auth/google-oauth.guard';
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
-
-  @Get()
-  @UseGuards(GoogleOAuthGuard)
-  async googleAuth(@Request() req) { }
-
   @Get('google-redirect')
   @UseGuards(GoogleOAuthGuard)
   googleAuthRedirect(@Request() req) {
